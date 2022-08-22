@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:imdb/bussines_logic/cubit/movies_cubit.dart';
-import 'package:imdb/data/apis/movie_api.dart';
-import 'package:imdb/data/repositories/movie_repostiory.dart';
-import 'package:imdb/presentation/screens/home/home.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:imdb/app_router.dart';
+import 'package:imdb/constants/strings.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BlocProvider(
-        create: (context) => MoviesCubit(MovieRepository(MovieAPI())),
-        child: Home(),
-      )
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: RouteStrings.splashScreen,
+      onGenerateRoute: AppRouter.onGenerateRoute,
     );
   }
 }

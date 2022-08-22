@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:imdb/data/models/movie.dart';
-import 'package:imdb/data/repositories/movie_repostiory.dart';
+import 'package:imdb/data/repositories/movies_repostiory.dart';
 import 'package:meta/meta.dart';
 
 part 'movies_state.dart';
@@ -8,7 +8,7 @@ part 'movies_state.dart';
 class MoviesCubit extends Cubit<MoviesState> {
   MoviesCubit(this.movieRepository) : super(MoviesInitial());
 
-  final MovieRepository movieRepository;
+  final MoviesRepository movieRepository;
 
   Future<void> getTopRatedMovies() async {
     try {
